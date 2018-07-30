@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Memory Game</title>
+    <meta name="description" content="">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet" href="css/memory.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Memory Game</h1>
+        </header>
+
+        <section class="score-panel">
+        Score: <span id="show-score"></span>
+        	<ul class="stars" id="stars">
+        		<li><i class="fa fa-star" id ="star-one"></i></li>
+        		<li><i class="fa fa-star" id="star-two"></i></li>
+        		<li><i class="fa fa-star" id="star-three"></i></li>
+        	</ul>
+
+            Moves: <span class="moves">0</span> 
+
+            Time: <span id="timer"></span>
+
+            <div class="restart">
+        		<i class="fa fa-repeat"></i>
+        	</div>
+        </section>
+
+        <ul class="deck" id="mainDeck">
+        </ul>
+    </div>
+
+    <!-- The Win Modal -->
+    <div id="win-modal" class="modal">
+
+      
+        <div class="modal-content">
+            <p>Congratulations! You Won!</p>
+            <p>With <span id="finalMoves"></span> moves and <span id="num-stars"></span> stars</p>
+            <p>Completion time: <span id ="endTime"></span></p>
+            <button class="play-again">Play Again!</button>
+        </div>
+
+    </div>
+
+    <script src="js/memory.js"></script>
+</body>
+</html>
