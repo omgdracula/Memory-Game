@@ -26,6 +26,7 @@ const scoreDisplay = document.getElementById("show-score");
 const modal = document.getElementById('win-modal');
 const starNums = document.getElementById('num-stars');
 const endTime = document.getElementById('endTime');
+const cards = document.getElementsByClassName('card');
 reset_button.addEventListener('click', resetGame);
 play_again.addEventListener('click', playAgain);
 
@@ -187,7 +188,7 @@ function resetGame(){
     num_stars = 3;
     clearTimeout(timePTR);
     document.getElementById('timer').innerHTML = 0;
-   
+    cards.classList.remove('open show');
     playGame();
 
     move_count = 0;
@@ -195,8 +196,7 @@ function resetGame(){
     matched_pairs = 0;
     starOne.style.display = "block";
     starTwo.style.display = "block";
-    starThree.style.display = "block";
-         
+    starThree.style.display = "block"; 
 }
 
 function playAgain(){
