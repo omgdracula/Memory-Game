@@ -10,6 +10,7 @@ let card_names = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa
     game_started = false;
 
 let timer = 0;
+document.getElementById("timer").innerHTML = 0;
 let timePTR;
 num_stars = 3;
 
@@ -151,11 +152,11 @@ function increaseMoveCount() {
     moves.innerHTML = move_count;
 
     if (move_count === 15) {
-          starOne.style.display = "none";
-          num_stars -= 1;
+        starOne.style.display = "none";
+        num_stars -= 1;
     } else if (move_count === 30) {
-          starTwo.style.display = "none";
-          num_stars -= 1;
+        starTwo.style.display = "none";
+        num_stars -= 1;
     } 
 }
 
@@ -188,10 +189,15 @@ function resetGame(){
     num_stars = 3;
     clearTimeout(timePTR);
     document.getElementById('timer').innerHTML = 0;
-    cards.classList.remove('open show');
     playGame();
+    clearInterval(timerInterval);
 
-    move_count = 0;
+    open_cards = [],
+    shown_cards = [],
+    move_count = 0,
+    matched_pairs = 0,
+    totalClicks = 0,
+    game_started = false;
     moves.innerHTML = 0;
     matched_pairs = 0;
     starOne.style.display = "block";
@@ -204,10 +210,11 @@ function playAgain(){
     modal.style.display = "none";
 }
 
-function startTimer(){
-    timer += 1;
-    document.getElementById("timer").innerHTML = timer;
-    timePTR = setTimeout(startTimer, 1000);
+function startTimer() {
+	timerInterval = setInterval(() => {
+		timer++;
+		document.getElementById('timer').innerHTML = timer;
+	}, 1000);
 }
 
 
