@@ -140,6 +140,7 @@ deck.addEventListener('click', function(event) {
     if(matched_pairs === 8) {
         // clearInterval(myVar);
         clearTimeout(timePTR);
+        clearTimeout(timerInterval);
         showModal();
       } 
     }
@@ -190,7 +191,6 @@ function resetGame(){
     clearTimeout(timePTR);
     document.getElementById('timer').innerHTML = 0;
     playGame();
-    clearInterval(timerInterval);
 
     open_cards = [],
     shown_cards = [],
